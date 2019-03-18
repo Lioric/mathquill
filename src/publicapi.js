@@ -120,7 +120,7 @@ function getInterface(v) {
       };
     };
     _.config = function(opts) { config(this.__options, opts); return this; };
-    _.el = function() { return this.__controller.container[0]; };
+    _.el = function() { return this.__controller.container.nth(0); };
     _.text = function() { return this.__controller.exportText(); };
     _.latex = function(latex) {
       if (arguments.length > 0) {
@@ -173,7 +173,7 @@ function getInterface(v) {
       var ctrlr = this.__controller.notify(), cursor = ctrlr.cursor;
       if (/^\\[a-z]+$/i.test(cmd) && !cursor.isTooDeep()) {
         cmd = cmd.slice(1);
-        var klass = LatexCmds[cmd];
+        var klass = LatexCmds[cmd] || Environments[cmd];
         if (klass) {
           cmd = klass(cmd);
           if (cursor.selection) cmd.replaces(cursor.replaceSelection());
@@ -228,7 +228,7 @@ function getInterface(v) {
       target = target || document.elementFromPoint(clientX, clientY);
 
       var ctrlr = this.__controller, root = ctrlr.root;
-      if (!jQuery.contains(root.jQ[0], target)) target = root.jQ[0];
+      if (!jQuery.contains(root.jQ.nth(0), target)) target = root.jQ.nth(0);
       ctrlr.seek($(target), clientX + pageXOffset, clientY + pageYOffset);
       if (ctrlr.blurred) this.focus();
       return this;

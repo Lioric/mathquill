@@ -20,7 +20,7 @@
   }
 
   // TODO: dasherize non-symbola
-  var, .mq-text-mode, .mq-nonSymbola {
+  .mq-text-mode, .mq-nonSymbola {
     font-family: @times;
     line-height: .9;
   }
@@ -114,6 +114,22 @@
     }
   }
 
+  var {
+    font-family: Math-var, Symbola, serif;
+  }
+
+  .mq-ams {
+    font-family: Math-AMS, Symbola, serif;
+  }
+
+  .mq-cal {
+    font-family: Math-Cal, Symbola, serif;
+  }
+
+  .mq-frak {
+    font-family: Math-Frak, Symbola, serif;
+  }
+
   .mq-roman {
     font-style: normal;
   }
@@ -133,6 +149,18 @@
   .mq-underline {
     border-bottom: 1px solid black;
     margin-bottom: 1px;
+  }
+  .mq-cancel {
+    position: relative;
+  }
+  .mq-cancel-inner {
+    position: absolute;
+    top:-0.25em;
+    left:0;
+    width:100%;
+    transform:rotate(-2.5deg);
+    overflow:hidden;        
+    font-weight:bold;
   }
 
   ////
@@ -154,7 +182,7 @@
   //   See also .fraction
   .mq-supsub {
     text-align: left;
-    font-size: 90%;
+    font-size: 70%;
     vertical-align: -.5em;
 
     &.mq-sup-only {
@@ -197,6 +225,7 @@
   ////
   // parentheses
   .mq-paren {
+    font-size: 90%;
     padding: 0 .1em;
     vertical-align: top;
     -webkit-transform-origin: center .06em;
@@ -414,6 +443,30 @@
         visibility: visible; //must override .mq-editable-field.mq-empty:after
         text-align: right;
       }
+    }
+  }
+
+  .mq-matrix {
+    vertical-align: middle;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+
+    table {
+      width: auto;
+      border-bottom: none;
+      border-spacing: 3px;
+      border-collapse: separate;
+      &.mq-rows-1 { /* better alignment when there's just one row */
+        vertical-align: middle;
+        margin-bottom: 1px;
+      }
+    }
+
+    td {
+      border: none;
+      width: auto; /* defensive resets */
+      padding: 0.1em 0.3em;
+      vertical-align: baseline;
     }
   }
 }

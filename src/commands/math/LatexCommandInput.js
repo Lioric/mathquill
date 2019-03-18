@@ -49,7 +49,7 @@ CharCmds['\\'] = P(MathCommand, function(_, super_) {
     super_.createLeftOf.call(this, cursor);
 
     if (this._replacedFragment) {
-      var el = this.jQ[0];
+      var el = this.jQ.nth(0);
       this.jQ =
         this._replacedFragment.jQ.addClass('mq-blur').bind(
           'mousedown mousemove', //FIXME: is monkey-patching the mousedown and mousemove handlers the right way to do this?
@@ -74,7 +74,7 @@ CharCmds['\\'] = P(MathCommand, function(_, super_) {
 
     var latex = this.ends[L].latex();
     if (!latex) latex = ' ';
-    var cmd = LatexCmds[latex];
+    var cmd = LatexCmds[latex] || Environments[latex];
     if (cmd) {
       cmd = cmd(latex);
       if (this._replacedFragment) cmd.replaces(this._replacedFragment);

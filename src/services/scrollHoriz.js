@@ -6,15 +6,15 @@
 Controller.open(function(_) {
   _.scrollHoriz = function() {
     var cursor = this.cursor, seln = cursor.selection;
-    var rootRect = this.root.jQ[0].getBoundingClientRect();
+    var rootRect = this.root.jQ.nth(0).getBoundingClientRect();
     if (!seln) {
-      var x = cursor.jQ[0].getBoundingClientRect().left;
+      var x = cursor.jQ.nth(0).getBoundingClientRect().left;
       if (x > rootRect.right - 20) var scrollBy = x - (rootRect.right - 20);
       else if (x < rootRect.left + 20) var scrollBy = x - (rootRect.left + 20);
       else return;
     }
     else {
-      var rect = seln.jQ[0].getBoundingClientRect();
+      var rect = seln.jQ.nth(0).getBoundingClientRect();
       var overLeft = rect.left - (rootRect.left + 20);
       var overRight = rect.right - (rootRect.right - 20);
       if (seln.ends[L] === cursor[R]) {
@@ -34,6 +34,6 @@ Controller.open(function(_) {
         else return;
       }
     }
-    this.root.jQ.stop().animate({ scrollLeft: '+=' + scrollBy}, 100);
+    // this.root.jQ.stop().animate({ scrollLeft: '+=' + scrollBy}, 100);
   };
 });

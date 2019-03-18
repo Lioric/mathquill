@@ -72,7 +72,7 @@ LatexCmds.notsupersete = LatexCmds.notsuperseteq =
 
 
 //the canonical sets of numbers
-LatexCmds.N = LatexCmds.naturals = LatexCmds.Naturals =
+LatexCmds.N = LatexCmds.naturals = LatexCmds.Naturals = 
   bind(VanillaSymbol,'\\mathbb{N}','&#8469;');
 
 LatexCmds.P =
@@ -138,7 +138,7 @@ LatexCmds.succ = bind(VanillaSymbol, '\\succ ', '&#8827;');
 LatexCmds.preceq = bind(VanillaSymbol, '\\preceq ', '&#8828;');
 LatexCmds.succeq = bind(VanillaSymbol, '\\succeq ', '&#8829;');
 LatexCmds.simeq = bind(VanillaSymbol, '\\simeq ', '&#8771;');
-LatexCmds.mid = bind(VanillaSymbol, '\\mid ', '&#8739;');
+LatexCmds.lvert = LatexCmds.rvert = LatexCmds.mid = bind(VanillaSymbol, '\\mid ', '&#8739;');
 LatexCmds.ll = bind(VanillaSymbol, '\\ll ', '&#8810;');
 LatexCmds.gg = bind(VanillaSymbol, '\\gg ', '&#8811;');
 LatexCmds.parallel = bind(VanillaSymbol, '\\parallel ', '&#8741;');

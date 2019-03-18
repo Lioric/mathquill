@@ -453,7 +453,7 @@ var PlusMinus = P(BinaryOperator, function(_) {
     };
     
     if (dir === R) return; // ignore if sibling only changed on the right
-    this.jQ[0].className = determineOpClassType(this);
+    this.jQ.nth(0).className = determineOpClassType(this);
     return this;
   };
 });

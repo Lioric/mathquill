@@ -287,7 +287,7 @@ var Selection = P(Fragment, function(_, super_) {
   _.clear = function() {
     // using the browser's native .childNodes property so that we
     // don't discard text nodes.
-    this.jQ.replaceWith(this.jQ[0].childNodes);
+    this.jQ.replaceWith(this.jQ.nth(0).childNodes);
     return this;
   };
   _.join = function(methodName) {

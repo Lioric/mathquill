@@ -20,7 +20,7 @@ var TextBlock = P(Node, function(_, super_) {
 
   _.jQadd = function(jQ) {
     super_.jQadd.call(this, jQ);
-    if (this.ends[L]) this.ends[L].jQadd(this.jQ[0].firstChild);
+    if (this.ends[L]) this.ends[L].jQadd(this.jQ.nth(0).firstChild);
   };
 
   _.createLeftOf = function(cursor) {
@@ -122,7 +122,7 @@ var TextBlock = P(Node, function(_, super_) {
     var textPc = fuseChildren(this);
 
     // insert cursor at approx position in DOMTextNode
-    var avgChWidth = this.jQ.width()/this.text.length;
+    var avgChWidth = this.jQ.width()/this.text().length;
     var approxPosition = Math.round((pageX - this.jQ.offset().left)/avgChWidth);
     if (approxPosition <= 0) cursor.insAtLeftEnd(this);
     else if (approxPosition >= textPc.text.length) cursor.insAtRightEnd(this);
@@ -176,9 +176,9 @@ var TextBlock = P(Node, function(_, super_) {
   };
 
   function fuseChildren(self) {
-    self.jQ[0].normalize();
+    self.jQ.nth(0).normalize();
 
-    var textPcDom = self.jQ[0].firstChild;
+    var textPcDom = self.jQ.nth(0).firstChild;
     if (!textPcDom) return;
     pray('only node in TextBlock span is Text node', textPcDom.nodeType === 3);
     // nodeType === 3 has meant a Text node since ancient times:

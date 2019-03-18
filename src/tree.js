@@ -49,13 +49,13 @@ function prayDirection(dir) {
  * `this.constructor.find` or anything like that, always doing `jQuery.find`.
  */
 var $ = P(jQuery, function(_) {
-  _.insDirOf = function(dir, el) {
-    return dir === L ?
-      this.insertBefore(el.first()) : this.insertAfter(el.last());
-  };
-  _.insAtDirEnd = function(dir, el) {
-    return dir === L ? this.prependTo(el) : this.appendTo(el);
-  };
+  // _.insDirOf = function(dir, el) {
+  //   return dir === L ?
+  //     this.insertBefore(el.first()) : this.insertAfter(el.last());
+  // };
+  // _.insAtDirEnd = function(dir, el) {
+  //   return dir === L ? this.prependTo(el) : this.appendTo(el);
+  // };
 });
 
 var Point = P(function(_) {
@@ -117,7 +117,7 @@ var Node = P(function(_) {
       }
     }
 
-    for (var i = 0; i < jQ.length; i += 1) jQadd(jQ[i]);
+    for (var i = 0; i < jQ.length; i += 1) jQadd(jQ.nth(i));
     return jQ;
   };
 
